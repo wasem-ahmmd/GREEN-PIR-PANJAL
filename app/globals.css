@@ -1,0 +1,70 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0A0F0A;
+  --fg: #ffffff;
+}
+
+html, body {
+  background: var(--bg);
+  color: var(--fg);
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: #1F8F3E;
+  color: #fff;
+}
+
+.text-gradient-green {
+  background: linear-gradient(120deg, #6DBF83 0%, #1F8F3E 50%, #CDEAD6 100%);
+  background-size: 200% 200%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+.glass {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  backdrop-filter: blur(10px);
+}
+
+.glow-green {
+  box-shadow: 0 0 0 1px rgba(31,143,62,0.35), 0 10px 40px -10px rgba(31,143,62,0.45);
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-brand-green-500 px-6 py-3 text-sm font-semibold text-white transition hover:bg-brand-green-400 hover:-translate-y-0.5;
+  box-shadow: 0 10px 30px -10px rgba(31,143,62,0.6);
+}
+
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/10;
+}
+
+.section {
+  @apply relative mx-auto max-w-7xl px-6 md:px-10;
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity .8s ease, transform .8s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
