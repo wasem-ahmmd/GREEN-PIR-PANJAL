@@ -1,17 +1,20 @@
 "use client";
 
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const links = [
-  { href: "#about", label: "About" },
-  { href: "#research", label: "Research" },
-  { href: "#biobags", label: "Bio Bags" },
-  { href: "#food", label: "Food Tech" },
-  { href: "#investors", label: "Investors" },
-  { href: "#contact", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/research", label: "Research" },
+  { href: "/bio-bags", label: "Bio Bags" },
+  { href: "/food-tech", label: "Food Tech" },
+  { href: "/investors", label: "Investors" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Navbar() {
+  const pathname = usePathname();
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
 
@@ -21,6 +24,10 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
   return (
     <header
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
@@ -28,7 +35,7 @@ export default function Navbar() {
       }`}
     >
       <div className="section flex items-center justify-between py-4">
-        <a href="#" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group">
           <span className="relative inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-green-400 to-brand-green-700 shadow-lg shadow-brand-green-700/40">
             <svg viewBox="0 0 24 24" className="h-5 w-5 text-white" fill="none">
               <path
@@ -43,24 +50,28 @@ export default function Navbar() {
             <div className="text-sm font-semibold tracking-wide">Green Pir Panjal</div>
             <div className="text-[10px] uppercase tracking-[0.2em] text-brand-green-300">R&amp;D Lab</div>
           </div>
-        </a>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8">
           {links.map((l) => (
-            <a
+            <Link
               key={l.href}
               href={l.href}
-              className="text-sm text-white/70 hover:text-white transition relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-brand-green-400 hover:after:w-full after:transition-all"
+              className={`text-sm transition relative after:absolute after:left-0 after:-bottom-1 after:h-px after:w-0 after:bg-brand-green-400 hover:after:w-full after:transition-all ${
+                pathname === l.href
+                  ? "text-white after:w-full"
+                  : "text-white/70 hover:text-white"
+              }`}
             >
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
-          <a href="#investors" className="btn-primary !py-2 !px-5 text-xs">
+          <Link href="/investors" className="btn-primary !py-2 !px-5 text-xs">
             Invest With Us
-          </a>
+          </Link>
         </div>
 
         <button
@@ -76,18 +87,19 @@ export default function Navbar() {
         <div className="md:hidden border-t border-white/5 bg-brand-black/95 backdrop-blur-xl">
           <div className="section flex flex-col gap-2 py-4">
             {links.map((l) => (
-              <a
+              <Link
                 key={l.href}
                 href={l.href}
-                onClick={() => setOpen(false)}
-                className="rounded-lg px-3 py-2 text-sm text-white/80 hover:bg-white/5"
+                className={`rounded-lg px-3 py-2 text-sm hover:bg-white/5 ${
+                  pathname === l.href ? "text-white bg-white/5" : "text-white/80"
+                }`}
               >
                 {l.label}
-              </a>
+              </Link>
             ))}
-            <a href="#investors" onClick={() => setOpen(false)} className="btn-primary mt-2">
+            <Link href="/investors" className="btn-primary mt-2">
               Invest With Us
-            </a>
+            </Link>
           </div>
         </div>
       )}

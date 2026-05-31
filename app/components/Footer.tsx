@@ -1,9 +1,11 @@
+import Link from "next/link";
+
 export default function Footer() {
   return (
-    <footer id="contact" className="relative border-t border-white/5 mt-20">
+    <footer className="relative border-t border-white/5 mt-20">
       <div className="section py-16 grid gap-12 md:grid-cols-12">
         <div className="md:col-span-5">
-          <div className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-to-br from-brand-green-400 to-brand-green-700">
               <svg viewBox="0 0 24 24" className="h-5 w-5 text-white" fill="none">
                 <path
@@ -19,7 +21,7 @@ export default function Footer() {
                 Research Lab
               </div>
             </div>
-          </div>
+          </Link>
           <p className="mt-5 max-w-sm text-sm text-white/60 leading-relaxed">
             A research lab building biodegradable materials and food processing technologies from the Pir Panjal — for the planet, for the people.
           </p>
@@ -28,10 +30,12 @@ export default function Footer() {
         <div className="md:col-span-3">
           <div className="text-xs uppercase tracking-[0.2em] text-white/40">Explore</div>
           <ul className="mt-4 space-y-2 text-sm text-white/70">
-            <li><a href="#about" className="hover:text-brand-green-300">About</a></li>
-            <li><a href="#research" className="hover:text-brand-green-300">Research</a></li>
-            <li><a href="#biobags" className="hover:text-brand-green-300">Bio Bags</a></li>
-            <li><a href="#food" className="hover:text-brand-green-300">Food Tech</a></li>
+            <li><Link href="/about" className="hover:text-brand-green-300">About</Link></li>
+            <li><Link href="/research" className="hover:text-brand-green-300">Research</Link></li>
+            <li><Link href="/bio-bags" className="hover:text-brand-green-300">Bio Bags</Link></li>
+            <li><Link href="/food-tech" className="hover:text-brand-green-300">Food Tech</Link></li>
+            <li><Link href="/investors" className="hover:text-brand-green-300">Investors</Link></li>
+            <li><Link href="/contact" className="hover:text-brand-green-300">Contact</Link></li>
           </ul>
         </div>
 
@@ -58,9 +62,7 @@ export default function Footer() {
         <div className="section flex flex-wrap items-center justify-between gap-3 py-6 text-xs text-white/40">
           <div>© {new Date().getFullYear()} Green Pir Panjal R&amp;D. All rights reserved.</div>
           <div className="flex items-center gap-5">
-            <a href="#" className="hover:text-brand-green-300">Privacy</a>
-            <a href="#" className="hover:text-brand-green-300">Terms</a>
-            <a href="#" className="hover:text-brand-green-300">Press</a>
+            <Link href="/contact" className="hover:text-brand-green-300">Contact</Link>
           </div>
         </div>
       </div>

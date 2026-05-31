@@ -1,23 +1,12 @@
-import Navbar from "./components/Navbar";
+import PageLayout from "./components/PageLayout";
 import Hero from "./components/Hero";
-import About from "./components/About";
-import Research from "./components/Research";
-import BioBags from "./components/BioBags";
-import FoodTech from "./components/FoodTech";
-import Investors from "./components/Investors";
-import Footer from "./components/Footer";
+import CompostableBagsSection from "./components/CompostableBagsSection";
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <Navbar />
+    <PageLayout>
       <Hero />
-      <About />
-      <Research />
-      <BioBags />
-      <FoodTech />
-      <Investors />
-      <Footer />
-    </main>
+      <CompostableBagsSection />
+    </PageLayout>
   );
 }

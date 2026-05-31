@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const features = [
   { t: "Plant-derived polymers", d: "Engineered from agricultural by-products and natural starches." },
   { t: "180-day composting", d: "Returns to soil safely within 180 days under home compost conditions." },
@@ -36,9 +38,9 @@ export default function BioBags() {
             ))}
           </div>
 
-          <a href="#investors" className="btn-primary mt-10">
+          <Link href="/investors" className="btn-primary mt-10">
             Partner on this product
-          </a>
+          </Link>
         </div>
 
         <div className="lg:col-span-6 order-1 lg:order-2 relative">
