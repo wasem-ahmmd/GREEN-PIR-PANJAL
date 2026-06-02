@@ -9,6 +9,7 @@ const links = [
   { href: "/research", label: "Research" },
   { href: "/bio-bags", label: "Bio Bags" },
   { href: "/food-tech", label: "Food Tech" },
+  { href: "/shop", label: "Shop" },
   { href: "/investors", label: "Investors" },
   { href: "/contact", label: "Contact" },
 ];
@@ -48,7 +49,7 @@ export default function Navbar() {
           </span>
           <div className="leading-tight">
             <div className="text-sm font-semibold tracking-wide">Green Pir Panjal</div>
-            <div className="text-[10px] uppercase tracking-[0.2em] text-brand-green-300">R&amp;D Lab</div>
+            <div className="text-[12px] text-center uppercase tracking-[0.2em] text-brand-green-300">R&amp;D</div>
           </div>
         </Link>
 
